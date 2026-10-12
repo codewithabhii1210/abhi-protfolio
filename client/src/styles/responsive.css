@@ -1,0 +1,144 @@
+/* ─── Responsive ────────────────────────────────────────────────────── */
+
+@media (max-width: 860px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 6rem;
+  }
+  .hero-visual {
+    order: -1;
+    width: min(62vw, 280px);
+  }
+}
+
+@media (max-width: 768px) {
+  .stats {
+    gap: 1.5rem;
+  }
+  .stat b {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+  }
+  .btn {
+    padding: 0.8rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  .arch {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .arch-node {
+    width: 100%;
+    max-width: 320px;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .heat {
+    padding-bottom: 0.8rem;
+    -webkit-overflow-scrolling: touch;
+  }
+  .pcard {
+    height: min(65vw, 360px);
+  }
+}
+
+@media (max-width: 700px) {
+  .hero,
+  .sec {
+    padding: 5rem 1.25rem;
+  }
+  .nav {
+    padding: 0.9rem 1.25rem;
+  }
+  .nav-toggle {
+    display: flex;
+  }
+  .nav nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(13, 13, 16, 0.98);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--line);
+    flex-direction: column;
+    padding: 5rem 2rem 2.5rem;
+    gap: 1.5rem;
+    align-items: center;
+    transform: translateY(-120%);
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+  }
+  .nav nav.active {
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .nav nav a {
+    font-size: 1.1rem;
+    color: var(--fg);
+    padding: 0.4rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero,
+  .sec {
+    padding: 4.5rem 1rem;
+  }
+  h1 {
+    font-size: clamp(1.85rem, 7.5vw, 2.8rem);
+  }
+  .big {
+    font-size: clamp(2rem, 8.5vw, 3.2rem);
+  }
+  .btn {
+    width: 100%;
+  }
+  .row {
+    flex-direction: column;
+    width: 100%;
+  }
+  .row .btn {
+    width: 100%;
+  }
+  .tl {
+    padding-left: 1.5rem;
+    gap: 1.8rem;
+  }
+  .chips {
+    gap: 0.4rem;
+  }
+  .chip {
+    font-size: 0.82rem;
+    padding: 0.25rem 0.65rem 0.25rem 0.25rem;
+  }
+  .card {
+    padding: 1.2rem;
+  }
+  .intro-name {
+    letter-spacing: 0.2em;
+    font-size: 0.78rem;
+  }
+}
+
+/* ─── Reduced motion ────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .track,
+  .orbit,
+  .photo::before,
+  .halo,
+  .live .arch-link i {
+    animation: none;
+  }
+}

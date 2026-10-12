@@ -1,0 +1,90 @@
+/* ─── Reset ─────────────────────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  background: var(--bg);
+  /* Lenis drives the scroll, so the browser's own smoothing stays off. */
+  scroll-behavior: auto;
+}
+
+body {
+  font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  color: var(--fg);
+  background: var(--bg);
+  overflow-x: hidden;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Visible focus ring for keyboard users, but only when tabbing. */
+:focus-visible {
+  outline: 2px solid var(--ac);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ─── Typography ────────────────────────────────────────────────────── */
+
+h1 {
+  font-size: clamp(2.2rem, 7vw, 5.5rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  line-height: 1;
+}
+
+.big {
+  font-size: clamp(2.5rem, 9vw, 7rem);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.lead {
+  max-width: 56ch;
+  color: var(--mute);
+  line-height: 1.7;
+}
+
+.tag {
+  color: var(--mute);
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.note {
+  color: var(--mute);
+  font-size: 0.8rem;
+}
+
+.acc {
+  color: var(--ac);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ac);
+  flex-shrink: 0;
+  box-shadow: 0 0 10px var(--ac);
+}
+
+.err {
+  color: #ff8a8a;
+}
