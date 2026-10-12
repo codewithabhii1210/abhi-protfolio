@@ -45,7 +45,13 @@ app.use(
     origin(origin, callback) {
       // No Origin header = same-origin navigation or a server-to-server call.
       if (!origin || allowedOrigins.includes(origin)) return callback(null, true);
-      return callback(new Error(`CORS: ${origin} is not allowed`));
+
+      // A refusal is a client problem, not a server fault. Tagging it 403
+      // keeps it out of the 5xx error path, which would log a stack trace on
+      // every cross-origin attempt and leak the message in development.
+      const err = new Error(`CORS: ${origin} is not allowed`);
+      err.status = 403;
+      return callback(err);
     },
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
